@@ -5,49 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BIONIC</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        
         :root {
             --bg-color: #0d0d0d;
             --text-color: #0ff;
             --button-bg: #0ff;
             --button-hover: #00a;
             --header-bg: linear-gradient(90deg, #00f, #0ff);
+            --shadow-glow: 0 0 15px rgba(0, 255, 255, 0.7);
         }
-        .alt-theme {
-            --bg-color: #1a1a1a;
-            --text-color: #ff0;
-            --button-bg: #ff0;
-            --button-hover: #a00;
-            --header-bg: linear-gradient(90deg, #f00, #ff0);
-        }
-        body {
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        body {
             background: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
+            overflow: hidden;
         }
         header {
             width: 100%;
             padding: 20px;
             background: var(--header-bg);
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 4px;
-            text-shadow: 0 0 10px var(--text-color);
+            text-shadow: var(--shadow-glow);
             position: fixed;
             top: 0;
             left: 0;
+            z-index: 1000;
         }
         .container {
             padding: 100px 20px;
             max-width: 800px;
+            animation: fadeIn 1.5s ease-in-out;
         }
         .btn {
             display: inline-block;
@@ -59,8 +61,10 @@
             font-weight: bold;
             text-transform: uppercase;
             border-radius: 50px;
-            box-shadow: 0 0 15px var(--button-bg);
+            box-shadow: var(--shadow-glow);
             transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
         }
         .btn:hover {
             background: var(--button-hover);
@@ -78,9 +82,22 @@
             font-weight: bold;
             border-radius: 10px;
             box-shadow: 0 0 10px #fff;
+            transition: all 0.3s;
         }
         .theme-btn:hover {
             background: #ccc;
+            transform: scale(1.1);
+        }
+        footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 12px;
+            color: gold;
+            text-shadow: var(--shadow-glow);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -92,7 +109,7 @@
         <a href="https://t.me/+AgcQCdLUb7U4NDIy" class="btn">Начать</a>
         <button class="theme-btn" onclick="toggleTheme()">Сменить стиль</button>
     </div>
-    <footer style="position: absolute; bottom: 10px; font-size: 12px; color: gold;">create and licensed by artemoska</footer>
+    <footer>create and licensed by artemoska</footer>
     <script>
         function toggleTheme() {
             document.body.classList.toggle('alt-theme');
