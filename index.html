@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIONIC</title>
+    <title>BIONIC - Арбитраж Трафика</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-        
+
         :root {
-            --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             --text-color: #0ff;
             --button-bg: #0ff;
             --button-hover: #00a;
@@ -21,7 +20,9 @@
             box-sizing: border-box;
         }
         body {
-            background: var(--bg-gradient);
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s infinite alternate;
             color: var(--text-color);
             font-family: 'Orbitron', sans-serif;
             text-align: center;
@@ -84,45 +85,43 @@
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes fall {
-            from { transform: translateY(-100px) rotate(0deg); opacity: 0.25; }
-            to { transform: translateY(100vh) rotate(360deg); opacity: 0.25; }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
-        @keyframes colorShift {
-            0% { color: #0ff; }
-            50% { color: #ff0; }
-            100% { color: #f0f; }
+        @keyframes fall {
+            from { transform: translateY(-100vh) rotate(0deg); }
+            to { transform: translateY(100vh) rotate(360deg); }
         }
         .dollar {
             position: absolute;
-            top: -50px;
             font-size: 30px;
             opacity: 0.25;
-            animation: fall linear infinite, colorShift 3s infinite alternate;
+            animation: fall 5s linear infinite;
+            color: hsl(var(--hue), 100%, 70%);
         }
     </style>
 </head>
 <body>
-    <header>BIONIC</header>
+    <header>BIONIC - Арбитраж Трафика</header>
     <div class="container">
-        <h1>Добро пожаловать в мир технологий будущего</h1>
-        <p>Исследуй, создавай и развивайся вместе с BIONIC</p>
-        <a href="https://t.me/+AgcQCdLUb7U4NDIy" class="btn">Начать</a>
+        <h1>Зарабатывай на арбитраже трафика с BIONIC</h1>
+        <p>Используй передовые технологии и стратегию для максимальной прибыли</p>
+        <a href="https://t.me/+AgcQCdLUb7U4NDIy" class="btn">Присоединиться</a>
     </div>
     <footer>create and licensed by artemoska</footer>
     <script>
-        function createDollars() {
-            for (let i = 0; i < 20; i++) {
-                let dollar = document.createElement("div");
-                dollar.innerHTML = "💲";
-                dollar.classList.add("dollar");
-                dollar.style.left = Math.random() * 100 + "vw";
-                dollar.style.animationDuration = (Math.random() * 3 + 2) + "s";
-                document.body.appendChild(dollar);
-                setTimeout(() => { dollar.remove(); }, 5000);
-            }
+        function createDollar() {
+            let dollar = document.createElement('div');
+            dollar.innerHTML = '$';
+            dollar.classList.add('dollar');
+            dollar.style.left = Math.random() * window.innerWidth + 'px';
+            dollar.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            dollar.style.setProperty('--hue', Math.random() * 360);
+            document.body.appendChild(dollar);
+            setTimeout(() => dollar.remove(), 5000);
         }
-        setInterval(createDollars, 1000);
+        setInterval(createDollar, 300);
     </script>
 </body>
 </html>
