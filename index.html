@@ -8,7 +8,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
         
         :root {
-            --bg-color: #0d0d0d;
+            --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             --text-color: #0ff;
             --button-bg: #0ff;
             --button-hover: #00a;
@@ -21,7 +21,7 @@
             box-sizing: border-box;
         }
         body {
-            background: var(--bg-color);
+            background: var(--bg-gradient);
             color: var(--text-color);
             font-family: 'Orbitron', sans-serif;
             text-align: center;
@@ -88,12 +88,17 @@
             from { transform: translateY(-100px) rotate(0deg); opacity: 0.25; }
             to { transform: translateY(100vh) rotate(360deg); opacity: 0.25; }
         }
+        @keyframes colorShift {
+            0% { color: #0ff; }
+            50% { color: #ff0; }
+            100% { color: #f0f; }
+        }
         .dollar {
             position: absolute;
             top: -50px;
             font-size: 30px;
             opacity: 0.25;
-            animation: fall linear infinite;
+            animation: fall linear infinite, colorShift 3s infinite alternate;
         }
     </style>
 </head>
