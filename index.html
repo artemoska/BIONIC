@@ -20,8 +20,8 @@
             box-sizing: border-box;
         }
         body {
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            background-size: 400% 400%;
+            background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+            background-size: 300% 300%;
             animation: gradientAnimation 10s infinite alternate;
             color: var(--text-color);
             font-family: 'Orbitron', sans-serif;
@@ -90,14 +90,14 @@
             100% { background-position: 100% 50%; }
         }
         @keyframes fall {
-            from { transform: translateY(-100vh) rotate(0deg); }
-            to { transform: translateY(100vh) rotate(360deg); }
+            from { transform: translateY(-100vh) rotate(0deg); opacity: 0.25; }
+            to { transform: translateY(100vh) rotate(360deg); opacity: 0.25; }
         }
         .dollar {
             position: absolute;
             font-size: 30px;
             opacity: 0.25;
-            animation: fall 5s linear infinite;
+            animation: fall 10s linear infinite;
             color: hsl(var(--hue), 100%, 70%);
         }
     </style>
@@ -116,10 +116,10 @@
             dollar.innerHTML = '$';
             dollar.classList.add('dollar');
             dollar.style.left = Math.random() * window.innerWidth + 'px';
-            dollar.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            dollar.style.animationDuration = (Math.random() * 5 + 5) + 's';
             dollar.style.setProperty('--hue', Math.random() * 360);
             document.body.appendChild(dollar);
-            setTimeout(() => dollar.remove(), 5000);
+            setTimeout(() => dollar.remove(), 10000);
         }
         setInterval(createDollar, 300);
     </script>
