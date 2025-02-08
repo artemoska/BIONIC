@@ -7,132 +7,140 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-        :root {
-            --text-color: #0ff;
-            --button-bg: #0ff;
-            --button-hover: #00a;
-            --header-bg: linear-gradient(90deg, #00f, #0ff);
-            --shadow-glow: 0 0 15px rgba(0, 255, 255, 0.7);
-        }
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
+            font-family: 'Orbitron', sans-serif;
             background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
             background-size: 300% 300%;
             animation: gradientAnimation 10s infinite alternate;
-            color: var(--text-color);
-            font-family: 'Orbitron', sans-serif;
+            color: #fff;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
-            position: relative;
         }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
         header {
             width: 100%;
             padding: 20px;
-            background: var(--header-bg);
-            font-size: 3rem;
+            background: rgba(0, 0, 0, 0.8);
+            font-size: 2rem;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 4px;
-            text-shadow: var(--shadow-glow);
             position: fixed;
             top: 0;
             left: 0;
             z-index: 1000;
         }
+
         .container {
-            padding: 100px 20px;
-            max-width: 800px;
-            animation: fadeIn 1.5s ease-in-out;
+            padding: 120px 20px;
+            max-width: 1200px;
+            margin: auto;
         }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
         .btn {
             display: inline-block;
             padding: 15px 40px;
             margin-top: 30px;
-            background: var(--button-bg);
+            background: #ff9800;
             color: #000;
             text-decoration: none;
             font-weight: bold;
             text-transform: uppercase;
             border-radius: 50px;
-            box-shadow: var(--shadow-glow);
             transition: all 0.3s ease-in-out;
-            position: relative;
-            overflow: hidden;
         }
+
         .btn:hover {
-            background: var(--button-hover);
-            color: #fff;
-            box-shadow: 0 0 30px var(--button-hover);
+            background: #ff5722;
             transform: scale(1.1);
         }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .feature {
+            width: 30%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .feature img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .quote {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 50px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
         footer {
-            position: absolute;
-            bottom: 10px;
+            margin-top: 50px;
             font-size: 12px;
             color: gold;
-            text-shadow: var(--shadow-glow);
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
-        @keyframes fall {
-            from { transform: translateY(-100vh) rotate(0deg); opacity: 0.25; }
-            to { transform: translateY(100vh) rotate(360deg); opacity: 0.25; }
-        }
-        .dollar {
-            position: absolute;
-            font-size: 30px;
-            opacity: 0.25;
-            animation: fall 10s linear infinite;
-            color: hsl(var(--hue), 100%, 70%);
-        }
-        .quote {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 24px;
-            font-weight: bold;
-            color: rgba(255, 255, 255, 0.8);
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
         }
     </style>
 </head>
 <body>
     <header>BIONIC - Арбитраж Трафика</header>
     <div class="container">
-        <h1>Зарабатывай на арбитраже трафика с BIONIC</h1>
-        <p>Используй передовые технологии и стратегию для максимальной прибыли</p>
-        <a href="https://t.me/+AgcQCdLUb7U4NDIy" class="btn">Присоединиться</a>
+        <div class="hero">
+            <h1>Максимизируй свою прибыль с BIONIC</h1>
+            <p>Автоматизированные стратегии, передовые технологии и высокий доход</p>
+            <a href="https://t.me/+AgcQCdLUb7U4NDIy" class="btn">Присоединиться</a>
+        </div>
+        <div class="features">
+            <div class="feature">
+                <img src="https://source.unsplash.com/300x200/?marketing" alt="Стратегии">
+                <h3>Эффективные стратегии</h3>
+                <p>Используем передовые методы арбитража для максимального результата</p>
+            </div>
+            <div class="feature">
+                <img src="https://source.unsplash.com/300x200/?technology" alt="Технологии">
+                <h3>Технологические решения</h3>
+                <p>Аналитика, автоматизация и искусственный интеллект в арбитраже</p>
+            </div>
+            <div class="feature">
+                <img src="https://source.unsplash.com/300x200/?money" alt="Прибыль">
+                <h3>Максимальная прибыль</h3>
+                <p>Гарантированный рост доходов благодаря уникальным алгоритмам</p>
+            </div>
+        </div>
+        <div class="quote">"Арбитраж – это не работа, это стиль жизни"</div>
     </div>
-    <div class="quote">"Арбитраж – это не работа, это стиль жизни"</div>
     <footer>create and licensed by artemoska</footer>
-    <script>
-        function createDollar() {
-            let dollar = document.createElement('div');
-            dollar.innerHTML = '$';
-            dollar.classList.add('dollar');
-            dollar.style.left = Math.random() * window.innerWidth + 'px';
-            dollar.style.animationDuration = (Math.random() * 5 + 5) + 's';
-            dollar.style.setProperty('--hue', Math.random() * 360);
-            document.body.appendChild(dollar);
-            setTimeout(() => dollar.remove(), 10000);
-        }
-        setInterval(createDollar, 300);
-    </script>
 </body>
 </html>
