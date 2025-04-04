@@ -180,6 +180,65 @@
             }
         }
 
+        /* Модальное окно */
+        .modal {
+            display: none; /* Скрыто по умолчанию */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            animation: fadeInModal 0.5s ease;
+        }
+
+        @keyframes fadeInModal {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .modal p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .close-btn {
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background-color: #ff9800;
+        }
+
         /* Мобильная адаптация */
         @media (max-width: 768px) {
             .features {
@@ -201,6 +260,11 @@
             .hero p {
                 font-size: 1rem;
             }
+
+            .modal-content {
+                width: 90%;
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -210,7 +274,7 @@
         <div class="hero fadeIn">
             <h1>Максимизируй свою прибыль с BIONIC</h1>
             <p>Автоматизированные стратегии, передовые технологии и высокий доход</p>
-            <a href="https://t.me/+AgcQCdLUb7U4NDIy" class="btn" aria-label="Присоединиться к BIONIC в Telegram">Присоединиться</a>
+            <a href="https://t.me/+AgcQCdLUb7U4NDIy" class="btn" id="showModalBtn" aria-label="Присоединиться к BIONIC в Telegram">Присоединиться</a>
         </div>
         
         <div class="parallax"></div> <!-- Параллакс-фон -->
@@ -235,6 +299,37 @@
         
         <div class="quote">"Арбитраж – это не работа, это стиль жизни"</div>
     </div>
+
+    <!-- Модальное окно -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2>Добро пожаловать в BIONIC!</h2>
+            <p>Мы рады, что вы заинтересовались нашим проектом. Чтобы присоединиться, нажмите на кнопку ниже и получите доступ к эксклюзивным стратегиям.</p>
+            <a href="https://t.me/+AgcQCdLUb7U4NDIy" class="btn">Присоединиться</a>
+            <br>
+            <button class="close-btn" id="closeModalBtn">Закрыть</button>
+        </div>
+    </div>
+
     <footer>create and licensed by artemoska</footer>
+
+    <script>
+        // Открытие модального окна
+        document.getElementById('showModalBtn').onclick = function() {
+            document.getElementById('modal').style.display = 'flex';
+        };
+
+        // Закрытие модального окна
+        document.getElementById('closeModalBtn').onclick = function() {
+            document.getElementById('modal').style.display = 'none';
+        };
+
+        // Закрытие модального окна, если кликнуть вне окна
+        window.onclick = function(event) {
+            if (event.target === document.getElementById('modal')) {
+                document.getElementById('modal').style.display = 'none';
+            }
+        };
+    </script>
 </body>
 </html>
