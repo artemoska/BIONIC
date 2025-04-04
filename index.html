@@ -275,6 +275,8 @@
             <h1>Максимизируй свою прибыль с BIONIC</h1>
             <p>Автоматизированные стратегии, передовые технологии и высокий доход</p>
             <a href="https://t.me/+AgcQCdLUb7U4NDIy" class="btn" id="showModalBtn" aria-label="Присоединиться к BIONIC в Telegram">Присоединиться</a>
+            <!-- Кнопка для открытия модального окна -->
+            <a href="javascript:void(0);" class="btn" id="giveawayBtn">Розыгрыш</a>
         </div>
         
         <div class="parallax"></div> <!-- Параллакс-фон -->
@@ -300,12 +302,12 @@
         <div class="quote">"Арбитраж – это не работа, это стиль жизни"</div>
     </div>
 
-    <!-- Модальное окно -->
+    <!-- Модальное окно для розыгрыша -->
     <div class="modal" id="modal">
         <div class="modal-content">
-            <h2>Добро пожаловать в BIONIC!</h2>
-            <p>Мы рады, что вы заинтересовались нашим проектом. Чтобы присоединиться, нажмите на кнопку ниже и получите доступ к эксклюзивным стратегиям.</p>
-            <a href="https://t.me/+AgcQCdLUb7U4NDIy" class="btn">Присоединиться</a>
+            <h2>Участвуйте в розыгрыше!</h2>
+            <p>Перейдите по ссылке ниже, чтобы принять участие в розыгрыше:</p>
+            <a href="https://t.me/c/2465039374/38" class="btn" target="_blank">Перейти к розыгрышу</a>
             <br>
             <button class="close-btn" id="closeModalBtn">Закрыть</button>
         </div>
@@ -314,8 +316,8 @@
     <footer>create and licensed by artemoska</footer>
 
     <script>
-        // Открытие модального окна
-        document.getElementById('showModalBtn').onclick = function() {
+        // Открытие модального окна для розыгрыша
+        document.getElementById('giveawayBtn').onclick = function() {
             document.getElementById('modal').style.display = 'flex';
         };
 
