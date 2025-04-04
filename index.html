@@ -113,32 +113,41 @@
             color: gold;
         }
         @media (max-width: 768px) {
-            .features {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .feature {
-            width: 90%;
-            margin-bottom: 20px;
-            padding: 15px;
-        }
-
-        .feature h3 {
-            font-size: 1.2rem;
-        }
-
-        .feature p {
-            font-size: 1rem;
-            min-height: 50px;
+    .features {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-        .feature img {
-            width: 100%;
-            height: auto;
-        }
+    .feature {
+        width: 90%;
+        margin-bottom: 20px;
+        padding: 15px;
+        text-align: center;
     }
 
+    .feature h3 {
+        font-size: 1.4rem;
+    }
+
+    .feature p {
+        font-size: 1rem;
+        min-height: 60px; /* Фиксируем высоту для одинакового отображения */
+    }
+
+    .feature img {
+        width: 100%;
+        height: auto;
+    }
+
+    .hero h1 {
+        font-size: 2rem; /* Уменьшаем заголовок на маленьких экранах */
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
     </style>
 </head>
 <body>
