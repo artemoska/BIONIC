@@ -15,22 +15,17 @@
 
         body {
             font-family: 'Orbitron', sans-serif;
-            background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
-            background-size: 300% 300%;
-            animation: gradientAnimation 10s infinite alternate;
-            color: #fff;
+            background-color: #fff;
+            color: #333;
             text-align: center;
-        }
-
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+            transition: background-color 0.5s ease;
         }
 
         header {
             width: 100%;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
+            background: #fff;
+            color: #333;
             font-size: 2rem;
             font-weight: bold;
             text-transform: uppercase;
@@ -39,6 +34,12 @@
             top: 0;
             left: 0;
             z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        header:hover {
+            background-color: #f1f1f1;
         }
 
         .container {
@@ -54,11 +55,26 @@
             flex-direction: column;
             text-align: center;
             padding: 80px 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.5s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 20px;
+            transition: color 0.5s ease;
+        }
+
+        .hero h1:hover {
+            color: #ff5722;
         }
 
         .btn {
@@ -66,7 +82,7 @@
             padding: 15px 40px;
             margin-top: 30px;
             background: #ff9800;
-            color: #000;
+            color: #fff;
             text-decoration: none;
             font-weight: bold;
             text-transform: uppercase;
@@ -77,6 +93,7 @@
         .btn:hover {
             background: #ff5722;
             transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .features {
@@ -84,70 +101,75 @@
             justify-content: space-around;
             flex-wrap: wrap;
             margin-top: 50px;
+            animation: fadeInUp 1s forwards 1s;
         }
 
         .feature {
             width: 30%;
-            background: rgba(255, 255, 255, 0.1);
+            background: #f9f9f9;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         .feature img {
             width: 100%;
             border-radius: 10px;
             margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature img:hover {
+            transform: scale(1.05);
         }
 
         .quote {
             font-size: 20px;
-            color: rgba(255, 255, 255, 0.5);
+            color: #888;
             margin-top: 50px;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: color 0.5s ease;
+        }
+
+        .quote:hover {
+            color: #ff5722;
         }
 
         footer {
             margin-top: 50px;
             font-size: 12px;
-            color: gold;
+            color: #888;
         }
+
         @media (max-width: 768px) {
-    .features {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+            .features {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
 
-    .feature {
-        width: 90%;
-        margin-bottom: 20px;
-        padding: 15px;
-        text-align: center;
-    }
+            .feature {
+                width: 90%;
+                margin-bottom: 20px;
+                padding: 15px;
+            }
 
-    .feature h3 {
-        font-size: 1.4rem;
-    }
+            .hero h1 {
+                font-size: 2rem;
+            }
 
-    .feature p {
-        font-size: 1rem;
-        min-height: 60px; /* Фиксируем высоту для одинакового отображения */
-    }
-
-    .feature img {
-        width: 100%;
-        height: auto;
-    }
-
-    .hero h1 {
-        font-size: 2rem; /* Уменьшаем заголовок на маленьких экранах */
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-}
+            .hero p {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -156,21 +178,21 @@
         <div class="hero">
             <h1>Максимизируй свою прибыль с BIONIC</h1>
             <p>Автоматизированные стратегии, передовые технологии и высокий доход</p>
-            <a href="https://t.me/+AgcQCdLUb7U4NDIy" class="btn">Присоединиться</a>
+            <a href="https://t.me/+AgcQCdLUb7U4NDIy" class="btn" aria-label="Присоединиться к BIONIC в Telegram">Присоединиться</a>
         </div>
         <div class="features">
             <div class="feature">
-                <img src="https://artemoska.github.io/BIONIC/images/mc.jpeg" alt="Стратегии" width="300" height="300">
+                <img src="https://artemoska.github.io/BIONIC/images/mc.jpeg" alt="Эффективные стратегии" width="300" height="300">
                 <h3>Эффективные стратегии</h3>
                 <p>Используем передовые методы арбитража для максимального результата</p>
             </div>
             <div class="feature">
-                <img src="https://artemoska.github.io/BIONIC/images/tc.jpeg" alt="Технологии" width="300" height="300">
+                <img src="https://artemoska.github.io/BIONIC/images/tc.jpeg" alt="Технологические решения" width="300" height="300">
                 <h3>Технологические решения</h3>
                 <p>Аналитика, автоматизация и искусственный интеллект в арбитраже</p>
             </div>
             <div class="feature">
-               <img src="https://artemoska.github.io/BIONIC/images/mn.jpeg" alt="Прибыль" width="300" height="300">
+               <img src="https://artemoska.github.io/BIONIC/images/mn.jpeg" alt="Максимальная прибыль" width="300" height="300">
                 <h3>Максимальная прибыль</h3>
                 <p>Гарантированный рост доходов благодаря уникальным алгоритмам</p>
             </div>
